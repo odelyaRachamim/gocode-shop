@@ -1,5 +1,21 @@
 import logo from "./logo.svg";
 import "./App.css";
+import Header from "./components/header/header";
+import Products from "./components/products/products";
+function App() {
+  return (
+    <div className="App">
+      <Header />
+      <Products />
+    </div>
+  );
+}
+
+export default App;
+
+/*
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
   return (
@@ -23,3 +39,4 @@ function App() {
 }
 
 export default App;
+*/
