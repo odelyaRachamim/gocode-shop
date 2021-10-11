@@ -2,6 +2,7 @@
 import "./App.css";
 import Header from "../Header/Header";
 import Products from "../Products/Products";
+import ToggleButton from "../ToggleButton/ToggleButton";
 
 // function ToggleButton() {
 //   return <div>ToggleButton </div>;
@@ -278,6 +279,7 @@ function App() {
   ];
   return (
     <div className="App">
+      <ToggleButton></ToggleButton>
       <Header />
       <Products products={myProductsList} />
     </div>
