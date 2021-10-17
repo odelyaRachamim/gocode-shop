@@ -3,13 +3,14 @@ import "./App.css";
 import Header from "../Header/Header";
 import Products from "../Products/Products";
 import ToggleButton from "../ToggleButton/ToggleButton";
+import { useState } from "react";
 
 // function ToggleButton() {
 //   return <div>ToggleButton </div>;
 // }
 
 function App() {
-  const myProductsList = [
+  const productsList = [
     {
       id: 1,
       title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
@@ -277,15 +278,29 @@ function App() {
       },
     },
   ];
+  const categoriesList = productsList
+    .map((p) => p.category)
+    .filter((value, index, array) => array.indexOf(value) === index);
+  const [filteredProductsList, setFilteredProductsList] =
+    useState(productsList);
+  const filterProductsList = (selectedValue) => {
+    setFilteredProductsList(
+      productsList.filter((product) => product.category === selectedValue)
+    );
+  };
   return (
     <div className="App">
       <ToggleButton></ToggleButton>
-      <Header />
-      <Products products={myProductsList} />
+      <Header
+        categories={categoriesList}
+        filerByCategory={filterProductsList}
+      />
+      <Products products={filteredProductsList} />
     </div>
   );
 }
 export default App;
 /*
-
+productsList
+const categories = products.map(p => p.category).filter((value, index, array) => array.indexOf(value)===index);
 */

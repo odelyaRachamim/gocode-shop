@@ -10,10 +10,10 @@ function Products({ products }) {
           id={product.id}
           title={product.title}
           price={product.price}
-          description={product.description}
-          category={product.category}
           image={product.image}
-          rating={product.rating}
+          // description={product.description}
+          // category={product.category}
+          // rating={product.rating}
         />
       ))}
     </section>

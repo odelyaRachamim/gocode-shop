@@ -1,20 +1,18 @@
 import { useState } from "react";
 function ToggleButton() {
-  const [myString, setString] = useState(true);
+  const [toggle, setToggle] = useState(true);
   return (
     <>
-      <button onClick={() => setString(!myString)}>
-        Please Click HERE for hidding
-      </button>
-      <h2>{myString ? "HELLO DEAR BUYERS" : ""}</h2>
+      {toggle && <h1>"HELLO BUYERS"</h1>}
+      <button onClick={() => setToggle(!toggle)}>Please Click HERE</button>
     </>
   );
 }
 export default ToggleButton;
 
-{
-  /* 
-  export default function ToggleButton() {
-  return <div> my Toggle button! </div>;
-} */
-}
+// return (
+//   <>
+//     <button onClick={() => setToggle(!toggle)}>Please Click HERE</button>
+//     {toggle && <h1>"HELLO BUYERS"</h1>}
+//   </>
+// );
