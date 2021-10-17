@@ -3,11 +3,7 @@ import "./App.css";
 import Header from "../Header/Header";
 import Products from "../Products/Products";
 import ToggleButton from "../ToggleButton/ToggleButton";
-import { useState } from "react";
-
-// function ToggleButton() {
-//   return <div>ToggleButton </div>;
-// }
+import { useState, useEffect } from "react";
 
 function App() {
   const productsList = [
@@ -274,10 +270,19 @@ function App() {
       image: "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg",
       rating: {
         rate: 3.6,
-        count: 145,
       },
     },
   ];
+
+  // const [productsList, setProductsList] = useState([]);
+  // useEffect(() => {
+  //   fetch("https://fakestoreapi.com/products")
+  //     .then((res) => {
+  //       return res.json();
+  //     })
+  //     .then((products) => setProductsList(products));
+  // }, []);
+
   const categoriesList = productsList
     .map((p) => p.category)
     .filter((value, index, array) => array.indexOf(value) === index);
@@ -293,14 +298,15 @@ function App() {
       <ToggleButton></ToggleButton>
       <Header
         categories={categoriesList}
-        filerByCategory={filterProductsList}
+        filterByCategory={filterProductsList}
       />
       <Products products={filteredProductsList} />
     </div>
   );
 }
+
 export default App;
-/*
-productsList
-const categories = products.map(p => p.category).filter((value, index, array) => array.indexOf(value)===index);
-*/
+
+// function ToggleButton() {
+//   return <div>ToggleButton </div>;
+// }

@@ -11,12 +11,15 @@ function Products({ products }) {
           title={product.title}
           price={product.price}
           image={product.image}
-          // description={product.description}
-          // category={product.category}
-          // rating={product.rating}
         />
       ))}
     </section>
   );
 }
+
 export default Products;
+//-----------------------------
+// useEffect(()=>{
+//   fetch("https://fakestoreapi.com/products").then((res) =>
+//   console.log(res));
+// },[]);
