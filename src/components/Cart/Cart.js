@@ -3,6 +3,6 @@ import { useState } from "react";
 
 function Cart() {
   const [productsCart, setProductsCart] = useState(MyContext);
-  return "my cart";
+  return "MY CART";
 }
 export default Cart;
