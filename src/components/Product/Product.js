@@ -1,4 +1,6 @@
 import "./Product.css";
+//import MyContext from "MyContext";
+import { useState } from "react";
 
 function Product({ title, price, image }) {
   return (
@@ -9,7 +11,14 @@ function Product({ title, price, image }) {
       <div className="product-info">
         <h5>{title}</h5>
         <h6>{price}</h6>
-        <button onClick> Add to cart</button>
+        <button
+          onClick={() => {
+            //setProductsCart
+          }}
+        >
+          {" "}
+          Add to cart
+        </button>
       </div>
     </div>
   );

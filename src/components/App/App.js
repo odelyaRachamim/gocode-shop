@@ -7,32 +7,34 @@ import { useState, useEffect } from "react";
 
 function App() {
   const [intialProducts, setIntialProducts] = useState([]);
-  const [productsList, setProductsList] = useState([]);
+
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((res) => {
         return res.json();
       })
-      .then((products) => setProductsList(products));
+      .then((intialProducts) => {
+        setIntialProducts(intialProducts);
+        setFilteredProductsList(intialProducts);
+      });
   }, []);
 
-  const categoriesList = productsList
+  const [filteredProductsList, setFilteredProductsList] =
+    useState(intialProducts);
+
+  const categories = intialProducts
     .map((p) => p.category)
     .filter((value, index, array) => array.indexOf(value) === index);
-  const [filteredProductsList, setFilteredProductsList] =
-    useState(productsList);
+
   const filterProductsList = (selectedValue) => {
     setFilteredProductsList(
-      productsList.filter((product) => product.category === selectedValue)
+      intialProducts.filter((product) => product.category === selectedValue)
     );
   };
   return (
     <div className="App">
       <ToggleButton></ToggleButton>
-      <Header
-        categories={categoriesList}
-        filterByCategory={filterProductsList}
-      />
+      <Header categories={categories} filterByCategory={filterProductsList} />
       <Products products={filteredProductsList} />
     </div>
   );
