@@ -1,11 +1,12 @@
-import Product from "../Product/Product";
 import "./Products.css";
+
+import CartProduct from "../CartProduct/CartProduct";
 
 function Products({ products }) {
   return (
     <section className="Products">
       {products.map((product) => (
-        <Product
+        <CartProduct
           key={product.id}
           id={product.id}
           title={product.title}
